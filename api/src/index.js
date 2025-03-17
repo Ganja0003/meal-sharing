@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import mealsRouter from "./routers/meals.js";
+import reservationsRouter from "./routers/reservations.js";
 
 const app = express();
 app.use(cors());
@@ -12,6 +13,9 @@ const apiRouter = express.Router();
 
 // This nested router example can also be replaced with your own sub-router
 apiRouter.use("/meals", mealsRouter);
+apiRouter.use("/reservations", reservationsRouter);
+
+
 
 app.use("/api", apiRouter);
 

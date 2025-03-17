@@ -4,10 +4,6 @@ import db from "../database_client.js";
 // This router can be deleted once you add your own router
 const mealsRouter = express.Router();
 
-mealsRouter.get("/", (req, res) => {
-  res.json({ message: "Hello meals router" });
-});
-
 
 //future-meals Router
 mealsRouter.get("/future-meals", async (req, res) => {
@@ -75,6 +71,87 @@ mealsRouter.get("/last-meals", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+
+//week 2
+
+mealsRouter.get("/", async (req, res) => {
+  try {
+    const meals = await db.select("*").from("meal");
+    res.json(meals);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+
+
+mealsRouter.post("/", async (req, res) => {
+  try {
+    const meals = await db("meal").insert(req.body);
+    res.status(201).json({
+      mealsID: meals[0],
+      message: "You have successfully inserted a new meals",
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+
+
+mealsRouter.get("/:id",async (req,res)=>{
+const id = req.params.id;
+try{
+  const meals = await db("meal")
+    .select("*")
+    .where({ id: id })
+    .first();
+  if (!meals) {
+    return res.status(404).json({ error: "meals doesnt exist" });
+  }
+  res.json(meals);
+
+} catch (error) {
+  res.status(500).json({ error: "Server error" });
+}
+})
+
+
+
+mealsRouter.put("/:id", async (req,res)=>{
+const id = req.params.id;
+const updatedmeals = req.body;
+try {
+  const meals = await db("meal")
+  .where({ id: id })
+  .update(updatedmeals);
+
+if (!meals) {
+  return res.status(404).json({ error: "meals doesnt exist" });
+}
+res.json(updatedmeals);
+
+} catch (error) {
+  res.status(500).json({ error: "Server error" });
+}
+})
+
+
+mealsRouter.delete("/:id", async (req,res)=>{
+const id = req.params.id;
+try{
+  const meals = await db("meal")
+  .where({ id: id })
+  .del();
+
+  if(!meals){
+    return res.status(404).json({error:"meals doesnt exist"})
+  }
+} catch(error){
+  res.status(500).json({ error: "Server error" });
+}
+})
 
 
 export default mealsRouter;
