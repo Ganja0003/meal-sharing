@@ -12,7 +12,6 @@ function MealsList() {
       const response = await fetch('http://127.0.0.1:3001/api/meals');
       const data = await response.json();
       setMeals(data)
-      console.log(data);
     }
 
     fetchMeals()
