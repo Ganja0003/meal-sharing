@@ -7,3 +7,14 @@
 .message {
   margin: auto;
 }
+
+
+button{
+  background-color: aqua;
+  height: 100px;
+  width: 100px;
+}
+
+span{
+  font-size: 70px;
+}
