@@ -1,5 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
+import Meal from './Meal.jsx'
+import styles from '../HomePage/HomePage.css'
 
 // This page can be deleted once you add your own page
 function MealsList() {
@@ -20,18 +22,22 @@ function MealsList() {
   
   return (
     
-    <>
-      <h1>Meals Project</h1>
-      {meals.map((meal, index) => {
-      return (
-      <div key={index}>
-        <h3>{meal.title}</h3>
-        <p>{meal.description}</p>
-        <p>{meal.price}</p>
+    <div className="mealContainer">
+      <div className="pageTitle">
+        <h1>Meals Project</h1>
       </div>
-  );
-})}
-    </>
+      
+      <div className="mealCardContainer">
+      {meals.map((meal, index) => {
+      return (  
+        <div className="mealCard">
+        <Meal key={index} meal={meal} />
+        </div>
+      );
+        })}
+      </div>
+    </div>
+      
   );
   
 }

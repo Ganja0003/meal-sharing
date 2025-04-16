@@ -1,0 +1,56 @@
+.mealContainer{
+ display:flex;
+ flex-direction: column;
+
+}
+
+
+.pageTitle{
+    background-color: coral;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    min-width: 100vw;
+}
+
+.mealCardContainer{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.mealCard{
+    background-color: coral;
+    height:300px;
+    width:250px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    margin: 70px;
+}
+
+
+
+.mealTitle, .mealPrice,.mealDescription{
+    color: white;
+}
+
+
+
+
+
+.mealCard:hover{
+    background-color: rgba(255, 115, 80, 0.788);
+}
+
+
+
+
+
