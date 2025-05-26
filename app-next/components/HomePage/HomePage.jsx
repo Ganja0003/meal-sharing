@@ -1,15 +1,22 @@
 "use client";
-import HYFLogo from "@/assets/hyf.svg";
-import Image from "next/image";
-import "./HomePage.css";
-import { useState } from "react";
-import { useEffect } from "react";
 import MealsList from "../MealsList/MealsList";
+import MealButton from "../MealsList/MealButton";
+import banner from '../../assets/banner.png'
+
 
 
 // Feel free to replace the content of this component with your own
 function HomePage() {
-  return <MealsList/>
+  return(
+    <>
+
+    <img src={banner.src} alt="banner" className="banner"/>
+    <MealsList slice={true}/>
+    <MealButton text='See More Meals' route='/meals'/>
+    
+    </>
+  );
+  
 }
 
 export default HomePage;

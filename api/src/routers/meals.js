@@ -4,7 +4,6 @@ import db from "../database_client.js";
 // This router can be deleted once you add your own router
 const mealsRouter = express.Router();
 
-
 mealsRouter.get("/", async (req, res) => {
   try {
     let mealsQuery = db.select("*").from("meal");
