@@ -64,7 +64,7 @@ export default async function specificMeal({ params }) {
         <div className="reviewFormContainer">
           <div>
             <label htmlFor="title">Title:</label>
-            <input type="text" name="title" id="title" />
+            <input type="text" name="title" id="title" required/>
           </div>
 
           <div>
