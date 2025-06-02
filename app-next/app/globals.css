@@ -10,13 +10,13 @@ body,
 
 
 .pageContainer {
-  min-height: 100vh; /* Fill full screen height */
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
 }
 
 .contentWrap {
-  flex: 1; /* Takes up all available space, pushes footer down */
+  flex: 1;
 }
 
 
@@ -187,12 +187,12 @@ footer  li{
 .card-reservation {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 32px;
   flex-wrap: wrap;
   padding: 40px;
   height: auto;
-  max-width: 80%;
+  max-width: 1200px;
   margin:  0 auto;
 }
 
@@ -208,6 +208,8 @@ footer  li{
   justify-content: center;
   align-items: center;
   border-radius: 40px;
+  max-width: 400px; 
+  width: 100%;  
 }
 
 
@@ -238,6 +240,8 @@ footer  li{
     background-color: coral; 
     margin: auto;
     border-radius: 40px;
+    max-width: 400px;   
+    width: 100%;
 }
 
 .reservationsForm > h1 {
@@ -342,4 +346,29 @@ footer  li{
   font-weight: bold;
   border: 2px solid #f97e4b;
   border-radius: 12px;
+}
+
+
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-info > ul {
+    margin-left: 0;
+  }
+
+  .card-reservation {
+    align-items: center;
+    text-align: center;
+  }
 }
