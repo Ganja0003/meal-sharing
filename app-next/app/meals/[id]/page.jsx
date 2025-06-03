@@ -1,4 +1,5 @@
 import Meal from "../../../components/MealsList/Meal";
+import ReservationsForm from "@/components/ReservationsForm";
 
 export async function generateStaticParams() {
   const res = await fetch("http://127.0.0.1:3001/api/meals");
@@ -21,49 +22,27 @@ export default async function specificMeal({ params }) {
           <Meal meal={meal} showDetails={true} showReserveButton={false} />
         </div>
 
-        <form action="http://127.0.0.1:3001/api/reservations" method='POST' className="reservationsForm">
-          <h1>Reservations</h1>
-
-          <input type="hidden" name="meal_id" value={meal.id} />
-          <input type="hidden" name="created_date" value={new Date().toISOString().split("T")[0]} />
-
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="contact_name" required />
-          </div>
-
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input type="text" id="email" name="contact_email" required />
-          </div>
-
-          <div>
-            <label htmlFor="number">Number:</label>
-            <input type="text" id="number" name="contact_phonenumber" required />
-          </div>
-
-          <div>
-            <label htmlFor="guests">Guests:</label>
-            <input type="number" id="guests" name="number_of_guests" required />
-          </div>
-
-          <button type="submit">Submit</button>
-        </form>
-        
+        <ReservationsForm mealId={params.id} meal={meal} />
       </div>
 
-
-
-
-
-
-
       <br />
       <br />
       <br />
 
-      <form action="" className="reviewForm">
+      <form
+        action="http://127.0.0.1:3001/api/reviews"
+        Method="POST"
+        className="reviewForm"
+      >
         <h1>Reviews</h1>
+
+        <input type="hidden" name="meal_id" value={meal.id} />
+        <input
+          type="hidden"
+          name="created_date"
+          value={new Date().toISOString().split("T")[0]}
+        />
+
         <div className="reviewFormContainer">
           <div>
             <label htmlFor="title">Title:</label>
@@ -71,15 +50,20 @@ export default async function specificMeal({ params }) {
           </div>
 
           <div>
-            <label htmlFor="review">Review:</label>
+            <label htmlFor="review">Description:</label>
             <textarea
               id="review"
-              name="review"
+              name="description"
               rows="20"
               cols="80"
               placeholder="Write your review here..."
               required
             ></textarea>
+          </div>
+
+          <div>
+            <label htmlFor="stars">Stars:</label>
+            <input type="number" max={5} min={1} name="stars" required />
           </div>
 
           <button type="submit">Submit</button>
