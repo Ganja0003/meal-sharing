@@ -293,7 +293,7 @@ footer  li{
     align-items: center;
     gap: 20px;
     background-color: coral;
-    margin-bottom: 200px;
+
     
 }
 
@@ -346,6 +346,27 @@ footer  li{
   font-weight: bold;
   border: 2px solid #f97e4b;
   border-radius: 12px;
+}
+
+.review-help-box {
+  background: white;
+  padding: 24px;
+  margin: 32px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-width: 700px;
+}
+
+.review-help-box h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: coral;
+}
+
+.review-help-box p {
+  margin: 0;
+  font-size: 16px;
+  color: coral;
 }
 
 
