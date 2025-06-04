@@ -30,6 +30,15 @@ export default async function specificMeal({ params }) {
       <br />
 
       <ReviewsForm mealId={params.id} />
+
+      <div className="review-help-box">
+        <h3>Need Help Writing a Review?</h3>
+        <p>
+          Just tell us what you liked or what could be better — we're always
+          improving!
+        </p>
+      </div>
+
     </>
   );
 }
