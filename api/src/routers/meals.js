@@ -27,7 +27,7 @@ mealsRouter.get("/", async (req, res) => {
 
 
     //dateBefore
-    if (req.query.dataBefore){
+    if (req.query.dateBefore){
       mealsQuery = mealsQuery.where("when", "<", req.query.dataBefore);
     }
   
