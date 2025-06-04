@@ -43,7 +43,7 @@ function Meal({ meal, showDetails = false, showReserveButton = true  }) {
           <>
           <p>Location: {meal.location}</p>
           <p>Date: {meal.when.slice(0,10)}</p>
-          <p>Max-Reservations: {meal.max_reservations}</p>
+          <p>Available Reservations: {meal.max_reservations}</p>
           <p className="mealPrice">{`Price: ${meal.price} DKK`}</p>
           
           </>
