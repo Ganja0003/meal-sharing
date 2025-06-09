@@ -9,7 +9,6 @@ import reviewsRouter from "./routers/reviews.js";
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true }));
 const apiRouter = express.Router();
 
 app.get('/', (req,res) => {
