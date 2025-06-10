@@ -10,10 +10,29 @@ mealsRouter.get("/", async (req, res) => {
 
     //maxPrice
     if (req.query.maxPrice){
-      mealsQuery = mealsQuery.where("price", "<=" , Number(req.query.maxPrice))
+      mealsQuery = mealsQuery.where("price", "<" , Number(req.query.maxPrice))
     }
 
-    
+
+    //availableReservations
+    if (req.query.availableReservations === "true") {
+    mealsQuery = db('meal')
+    .select('meal.id','title','description','location','max_reservations')
+    .leftJoin("reservation", "meal.id", "reservation.meal_id")
+    .sum("reservation.number_of_guests as total_guests")
+    .groupBy("meal.id")
+    .havingRaw("max_reservations > coalesce(SUM(reservation.number_of_guests),0)");
+
+    }else if(req.query.availableReservations === 'false'){
+      mealsQuery = db('meal')
+      .select('meal.id','title','description','location','max_reservations')
+      .leftJoin('reservation','meal.id','reservation.meal_id')
+      .sum('reservation.number_of_guests as total_guests')
+      .groupBy('meal.id')
+      .havingRaw('max_reservations <= coalesce(SUM(reservation.number_of_guests),0)')
+    }
+        
+
     //title 
     if (req.query.title) {
       mealsQuery = mealsQuery.where("title", "like", `%${req.query.title}%`);
@@ -37,8 +56,17 @@ mealsRouter.get("/", async (req, res) => {
       mealsQuery = mealsQuery.limit(Number(req.query.limit));
     }
 
-    
 
+    //sortKey & sortDir 
+    if(req.query.sortKey){
+      const allowedKeys = ['when', 'price', 'max_reservations']
+      if(allowedKeys.includes(req.query.sortKey)){
+        const direction = req.query.sortDir === 'desc' ? 'desc' : 'asc'
+        mealsQuery = mealsQuery.orderBy(req.query.sortKey,direction)
+      }
+    }
+
+    
     const meals = await mealsQuery;
     res.json(meals);
   } catch (error) {
