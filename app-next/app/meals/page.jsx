@@ -6,7 +6,7 @@ export default function mealsPage() {
     <>
       
       <MealsList />
-      <MealButton text='return' route='/'/>
+      <MealButton text='Return to homepage' route='/'/>
     </>
   );
 }

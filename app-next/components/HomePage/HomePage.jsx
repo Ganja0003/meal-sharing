@@ -12,7 +12,7 @@ function HomePage() {
 
     <img src={banner.src} alt="banner" className="banner"/>
     <MealsList slice={true}/>
-    <MealButton text='See More Meals' route='/meals'/>
+    <MealButton text='See more meals' route='/meals'/>
     
     </>
   );
