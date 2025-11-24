@@ -34,22 +34,27 @@ function MealsList({ slice }) {
   const mealsToRender = slice ? meals.slice(0, 3) : meals;
   return (
     <>
-      <div className="search">
-        <label htmlFor="search">Search</label>
-        <input type="text" id="search" onChange={handleSearch} />
-      </div>
-      <div className="sortKey">
-        <select name="sortKey" id="sort" onChange={handleSort}>
-          <option value="when">when</option>
-          <option value="price">price</option>
-          <option value="max_reservations">max_reservations</option>
-        </select>
-      </div>
-      <div className="sortDir">
-        <select name="sortDir" id="sortDir" onChange={(e) => setSortDir(e.target.value)}>
-          <option value="asc">asc</option>
-          <option value="desc">desc</option>
-        </select>
+      <div className="searchSort">
+
+        <div className="search">
+          <input type="text" id="search" onChange={handleSearch} placeholder='Search for meals'/>
+        </div>
+
+        <div className="sortKey">
+          <select name="sortKey" id="sortKey" onChange={handleSort}>
+            <option value="when">Date</option>
+            <option value="price">Price</option>
+            <option value="max_reservations">Max Reservations</option>
+          </select>
+        </div>
+
+        <div className="sortDir">
+          <select name="sortDir" id="sortDir" onChange={(e) => setSortDir(e.target.value)}>
+            <option value="asc">Asc</option>
+            <option value="desc">Desc</option>
+          </select>
+        </div>
+
       </div>
       <div className="mealContainer">
         <div className="mealCardContainer">

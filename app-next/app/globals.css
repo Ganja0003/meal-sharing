@@ -83,6 +83,37 @@ body,
   background-repeat: no-repeat;
 }
 
+.searchSort{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.search{
+  width: 40%;
+}
+
+.sortKey, .sortDir{
+  width: 15%;
+}
+
+#search{
+  height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#sortKey{
+  height: 100%;
+  width: 100%;
+}
+
+#sortDir{
+  height: 100%;
+  width: 100%;
+}
+
 .mealCardContainer{
     display:flex;
     justify-content: space-around;
