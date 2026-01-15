@@ -1,6 +1,9 @@
+import dotenv from "dotenv";
 import knex from "knex";
 
-const connection = knex({
+dotenv.config();
+
+const db = knex({
   client: process.env.DB_CLIENT,
   connection: {
     host: process.env.DB_HOST,
@@ -13,4 +16,6 @@ const connection = knex({
   },
 });
 
-export default connection;
+
+export default db;
+

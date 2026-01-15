@@ -6,3 +6,421 @@ body,
   height: 100%;
   width: 100%;
 }
+
+
+
+.pageContainer {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
+.contentWrap {
+  flex: 1;
+}
+
+
+
+.navLinks a.activeLink {
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.mealContainer{
+ display:flex;
+ flex-direction: column;
+
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    min-height: 10vh;
+    min-width: 100vw;
+    background-color: coral;
+}
+
+.nav > div {
+    width: 50%;
+}
+
+.title > h1{
+    color: white;
+    margin-left: 30px;
+}
+
+.navLinks{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.navLinks > a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.pageTitle{
+    background-color: coral;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    min-width: 100vw;
+}
+
+.banner {
+  width: 100%;
+  aspect-ratio: 3 / 1; /* Maintains a 3:1 ratio, adjust as needed */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.searchSort{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.search{
+  width: 40%;
+}
+
+.sortKey, .sortDir{
+  width: 15%;
+}
+
+#search{
+  height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#sortKey{
+  height: 100%;
+  width: 100%;
+}
+
+#sortDir{
+  height: 100%;
+  width: 100%;
+}
+
+.mealCardContainer{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 60vh;
+    min-width: 100vw;
+}
+
+.mealCard{
+    background-color: coral;
+    height:360px;
+    width:300px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 70px;
+    
+}
+
+.reserveButton{
+    margin-top: 10px;
+    padding: 0.5rem 1rem;
+    background-color: #ffa07a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+  }
+
+.mealTitle, .mealPrice,.mealDescription{
+    color: white;
+}
+
+
+.mealImage{
+    width: 40%;
+    height: 35%;
+    border-radius: 10px;
+}
+
+
+
+
+.mealCard:hover{
+    background-color: rgba(255, 115, 80, 0.788);
+}
+
+
+.mealButtonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    min-width: 100vw;
+    padding-bottom: 50px;
+}
+
+.mealButton{
+width: 250px;
+height: 80px;
+border-radius: 20px;
+border: none;
+background-color: white;
+color: coral;
+border:2px solid coral;
+font-weight: bold;
+cursor: pointer;
+}
+
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: coral;
+    color: white;
+    
+}
+
+
+
+
+footer  li{
+    list-style-type: none;
+}
+
+
+.footer-info > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+}
+
+.footer-info > ul > li {
+    margin-left: -40px;
+    cursor: pointer;
+    
+}
+
+.card-reservation {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 40px;
+  height: auto;
+  max-width: 1200px;
+  margin:  0 auto;
+}
+
+
+
+.reservation-mealCardContainer {
+  background-color: coral;
+  min-height: 300px;
+  height: auto;
+  padding: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  max-width: 400px; 
+  width: 100%;  
+}
+
+
+.reservation-mealCardContainer > h1{
+  font-size: 40px;
+}
+
+.reservation-mealCardContainer > img{
+  width: 60%;
+  height: 40%; 
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.reservation-mealCardContainer > p{
+  font-size: 20px;
+  color: white;
+}
+
+
+.reservationsForm{
+    min-height: 300px;
+    height: auto;
+    padding: 2vh 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: coral; 
+    margin: auto;
+    border-radius: 40px;
+    max-width: 400px;   
+    width: 100%;
+}
+
+.reservationsForm > h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  
+}
+
+.reservationsForm > div > label {
+  color: white;
+  font-size: 30px;
+  margin-left:5px;
+}
+
+.reservationsForm > div > input {
+  width: 250px;
+  height: 30px;
+  margin-left:20px;
+  border-radius: 7px;
+}
+
+
+
+.reservationsForm > button{
+ height: 45px;
+  width: 100%;
+  margin: 1rem auto;
+  background-color: white;
+  color: #f97e4b;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid #f97e4b;
+  border-radius: 12px;
+}
+
+
+
+
+
+
+
+.reviewForm{
+    min-height: 750px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: coral;
+
+    
+}
+
+.reviewFormContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.reviewForm > h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  
+  
+}
+
+.reviewForm > .reviewFormContainer > div > label {
+  color: white;
+  font-size: 30px;
+  margin-left:5px;
+  
+}
+
+.reviewForm > .reviewFormContainer > div > input {
+  width: 250px;
+  height: 30px;
+  margin-left:20px;
+  border-radius: 10px;
+}
+
+.reviewForm > .reviewFormContainer > div > textarea {
+  width: 90%;
+  min-height: 200px;
+  margin-left: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  resize: none;
+}
+
+.reviewFormContainer > button{
+  height: 45px;
+  width: 100%;
+  margin: 1rem auto;
+  background-color: white;
+  color: #f97e4b;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid #f97e4b;
+  border-radius: 12px;
+}
+
+.review-help-box {
+  background: white;
+  padding: 24px;
+  margin: 32px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-width: 700px;
+}
+
+.review-help-box h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: coral;
+}
+
+.review-help-box p {
+  margin: 0;
+  font-size: 16px;
+  color: coral;
+}
+
+
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-info > ul {
+    margin-left: 0;
+  }
+
+  .card-reservation {
+    align-items: center;
+    text-align: center;
+  }
+}
