@@ -31,9 +31,9 @@ reviewsRouter.post("/",async (req,res) =>{
 reviewsRouter.get("/:id", async (req,res) =>{
     try {
         const reviews = await db('review')
-        .select('*')
-        .where({id: req.params.id})
-        .first()
+        .select('review.*','meal.*')
+        .join('meal','meal.id','review.meal_id')
+        .where('meal_id', req.params.id)
         
         if(!reviews){
             return res.status(404).json({ error: "review doesnt exist" });
