@@ -16,6 +16,9 @@ export default async function specificMeal({ params }) {
   const res = await fetch(`http://127.0.0.1:3001/api/meals/${id}`);
   const meal = await res.json();
 
+  const response = await fetch(`http://127.0.0.1:3001/api/reviews/${id}`);
+  const review = await response.json();
+
   return (
     <>
       <div className="card-reservation">
