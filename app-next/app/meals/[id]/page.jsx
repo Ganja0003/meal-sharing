@@ -18,6 +18,7 @@ export default async function specificMeal({ params }) {
 
   const response = await fetch(`http://127.0.0.1:3001/api/reviews/${id}`);
   const review = await response.json();
+  console.log(review)
 
   return (
     <>
@@ -40,6 +41,14 @@ export default async function specificMeal({ params }) {
           Just tell us what you liked or what could be better — we're always
           improving!
         </p>
+      </div>
+
+      <div className="reviews">
+        {review.map((rev) =>{
+        return <>
+        <p key={rev.id}>Description: {rev.description}</p>  <p>Rating: {rev.stars}⭐</p>
+        </> 
+        })}
       </div>
 
     </>
