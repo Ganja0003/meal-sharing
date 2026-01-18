@@ -13,12 +13,15 @@ export async function generateStaticParams() {
 
 export default async function specificMeal({ params }) {
   const { id } = params;
-  const res = await fetch(`http://127.0.0.1:3001/api/meals/${id}`);
+  const res = await fetch(`http://127.0.0.1:3001/api/meals/${id}`, {
+    cache: "no-store",
+  });
   const meal = await res.json();
 
-  const response = await fetch(`http://127.0.0.1:3001/api/reviews/${id}`);
-  const review = await response.json();
-  console.log(review)
+  const response = await fetch(`http://127.0.0.1:3001/api/reviews/${id}`, {
+    cache: "no-store",
+  });
+  const reviews = await response.json();
 
   return (
     <>
@@ -44,13 +47,16 @@ export default async function specificMeal({ params }) {
       </div>
 
       <div className="reviews">
-        {review.map((rev) =>{
-        return <>
-        <p key={rev.id}>Description: {rev.description}</p>  <p>Rating: {rev.stars}⭐</p>
-        </> 
+        {reviews.map((review) => {
+          return (
+            <>
+              <p>Title: {review.review_title}</p>
+              <p>Description: {review.review_description}</p>
+              <p>Rating: {review.stars}⭐</p>
+            </>
+          );
         })}
       </div>
-
     </>
   );
 }
