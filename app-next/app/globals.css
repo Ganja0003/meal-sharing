@@ -400,6 +400,31 @@ footer  li{
   color: coral;
 }
 
+.reviewTitle{
+  display: flex;
+  justify-content: center;
+  color: coral;
+}
+
+.reviews{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.review{
+ border: 2px solid white;
+  background-color: coral;
+  color: white;
+  flex-basis:200px;
+  max-width: 300px;
+  word-wrap: break-word;
+  border-radius: 10px;
+  padding: 10px;
+}
+
 
 
 @media (max-width: 768px) {
