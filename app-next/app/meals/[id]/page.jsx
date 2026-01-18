@@ -46,13 +46,20 @@ export default async function specificMeal({ params }) {
         </p>
       </div>
 
+      <div className="reviewTitle">
+          <h1>Customer Reviews</h1>
+        </div>
+
       <div className="reviews">
         {reviews.map((review) => {
           return (
             <>
-              <p>Title: {review.review_title}</p>
-              <p>Description: {review.review_description}</p>
-              <p>Rating: {review.stars}⭐</p>
+              <div className="review">
+                <p>Headline: {review.review_title}</p>
+                <p>Review: {review.review_description}</p>
+                <p>Rating: {review.stars}⭐</p>
+              </div>
+              
             </>
           );
         })}
