@@ -31,7 +31,14 @@ reviewsRouter.post("/",async (req,res) =>{
 reviewsRouter.get("/:id", async (req,res) =>{
     try {
         const reviews = await db('review')
-        .select('review.*','meal.*')
+        .select({
+        review_id: 'review.id',
+        review_title:'review.title',
+        review_description: 'review.description',
+        stars: 'review.stars',
+        meal_id: 'meal.id',
+        meal_title: 'meal.title'
+        })
         .join('meal','meal.id','review.meal_id')
         .where('meal_id', req.params.id)
         
