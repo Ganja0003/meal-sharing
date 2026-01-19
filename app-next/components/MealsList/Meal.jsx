@@ -43,7 +43,7 @@ function Meal({ meal, showDetails = false, showReserveButton = true  }) {
           <>
           <p>Location: {meal.location}</p>
           <p>Date: {meal.when.slice(0,10)}</p>
-          <p>Available Reservations: {meal.max_reservations}</p>
+          <p>Available Reservations: {meal.available_reservations}</p>
           <p className="mealPrice">{`Price: ${meal.price} DKK`}</p>
           
           </>
@@ -57,7 +57,7 @@ function Meal({ meal, showDetails = false, showReserveButton = true  }) {
     
 
       {showReserveButton && (
-        <Link href={`/meals/${meal.id}`}><button className="reserveButton">Reserve Meal</button></Link>
+        <Link href={`/meals/${meal.id}`}><button className="reserveButton">See more</button></Link>
       )}
 
   
