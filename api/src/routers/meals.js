@@ -99,13 +99,22 @@ mealsRouter.get("/:id",async (req,res)=>{
 const id = req.params.id;
 try{
   const meals = await db("meal")
-    .select("*")
-    .where({ id: id })
-    .first();
-  if (!meals) {
+    .select(
+      "meal.*",
+      'reservation.meal_id',
+      db.raw(
+          "GREATEST(meal.max_reservations - COALESCE(SUM(reservation.number_of_guests),0),0) AS available_reservations"
+        )
+    )
+    .leftJoin('reservation','meal.id','reservation.meal_id')
+    .where('meal.id', id)
+    .groupBy('meal.id')
+  if (meals.length === 0) {
     return res.status(404).json({ error: "meals doesnt exist" });
   }
-  res.json(meals);
+
+  meals.canReserve = meals.available_reservations > 0;
+  res.json(meals[0]);
 
 } catch (error) {
   res.status(500).json({ error: "Server error" });
