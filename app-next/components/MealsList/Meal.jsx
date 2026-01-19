@@ -57,7 +57,7 @@ function Meal({ meal, showDetails = false, showReserveButton = true  }) {
     
 
       {showReserveButton && (
-        <Link href={`/meals/${meal.id}`}><button className="reserveButton">Reserve Meal</button></Link>
+        <Link href={`/meals/${meal.id}`}><button className="reserveButton">See more</button></Link>
       )}
 
   
