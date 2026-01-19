@@ -52,6 +52,11 @@ export default function ReservationsForm({mealId,meal}) {
       alert("Network error: " + error.message);
     }
   }
+
+  if (!meal.canReserve) {
+    return alert('Sorry, this meal is fully booked.');
+  }
+
   return (
     <form onSubmit={handleSubmit} className="reservationsForm">
       <h1>Reservations</h1>
