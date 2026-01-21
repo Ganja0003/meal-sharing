@@ -49,6 +49,8 @@ export default function CreateMeal(){
                     <input type="text" id='image_url'/>
                  </div>
 
+                 <button type='submit' className='createMealButton'>Submit</button>
+
             </form>
             </div>
         </>
