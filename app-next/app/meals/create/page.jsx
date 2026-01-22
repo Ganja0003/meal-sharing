@@ -1,7 +1,10 @@
 'use client'
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 export default function CreateMeal(){
-   const [formData,setformData] = useState({
+   const router = useRouter()
+
+   const [formData,setFormData] = useState({
       title:'',
       description:'',
       location:'',
@@ -14,7 +17,7 @@ export default function CreateMeal(){
 
 
    function handleChange(e) {
-      setformData({
+      setFormData({
          ...formData,
          [e.target.name]: e.target.value,
       })
@@ -32,6 +35,10 @@ export default function CreateMeal(){
       }) 
       const data = await response.json();
       console.log(data)
+      if(response.ok && data.mealsID){
+         alert(data.message)
+         router.push(`/meals/${data.mealsID}`)
+      }
    }
 
 console.log(formData)
