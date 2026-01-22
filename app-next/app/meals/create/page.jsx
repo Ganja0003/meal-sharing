@@ -1,52 +1,81 @@
+'use client'
+import { useState } from "react"
 export default function CreateMeal(){
+   const [formData,setformData] = useState({
+      title:'',
+      description:'',
+      location:'',
+      when:'',
+      max_reservations:'',
+      price:'',
+      created_date: new Date().toISOString().split('T')[0],
+      image_url:'',
+   })
 
 
+   function handleChange(e) {
+      setformData({
+         ...formData,
+         [e.target.name]: e.target.value,
+      })
+   }
+
+   async function handleSubmit(e) {
+      e.preventDefault()
+
+      const response = await fetch('http://127.0.0.1:3001/api/meals',{
+         method: 'POST',
+         headers: {
+            'Content-Type':'application/json',
+         },
+         body: JSON.stringify(formData),
+      }) 
+      const data = await response.json();
+      console.log(data)
+   }
+
+console.log(formData)
     return(
         <>
            <div className="createMeal">
 
             
                     
-            <form className='createMealForm'>
+            <form className='createMealForm' onSubmit={handleSubmit}>
                 <h2>Create a meal</h2>
-                <div className="createMealTitle createMealDivs">
+                <div className="createMealDivs">
                     <label htmlFor="title">Title: </label>
-                    <input type="text" />
+                    <input type="text" name='title' value={formData.title} onChange={handleChange} required/>
                 </div>
 
-                <div className="createMealDescription createMealDivs">
+                <div className="createMealDivs">
                     <label htmlFor="description">Description: </label>
-                    <input type="text" />
+                    <input type="text" name='description' value={formData.description} onChange={handleChange} required/>
                  </div>
 
-                 <div className="createMealLocation createMealDivs">
+                 <div className="createMealDivs">
                     <label htmlFor="location">Location: </label>
-                    <input type="text" id='location'/>
+                    <input type="text" name='location' value={formData.location} onChange={handleChange} required/>
                  </div>
 
-                 <div className="createMealWhen createMealDivs">
+                 <div className="createMealDivs">
                    <label htmlFor="when">When: </label>
-                    <input type="date" id='when'/> 
+                    <input type="date" name='when' value={formData.when} onChange={handleChange} min={new Date().toISOString().split('T')[0]} required/> 
                  </div>
 
-                 <div className="createMealMax_reservations createMealDivs">
+                 <div className="createMealDivs">
                     <label htmlFor="max_reservations">Max Reservations: </label>
-                    <input type="number" id='max_reservations'/>
+                    <input type="number" name='max_reservations' value={formData.max_reservations} onChange={handleChange} required/>
                  </div>
 
-                 <div className="createMealPrice createMealDivs">
+                 <div className="createMealDivs">
                     <label htmlFor="price">Price: </label>
-                    <input type="number" id='price'/>
+                    <input type="number" name='price' value={formData.price} onChange={handleChange} required/>
                  </div>
 
-                 <div className="createMealCreated_date createMealDivs">
-                   <label htmlFor="created_date">Created Date: </label>
-                    <input type="date" id='created_date'/> 
-                 </div>
-
-                 <div className="createMealImage_url createMealDivs">
+                 <div className="createMealDivs">
                     <label htmlFor="image_url">Image URL: </label>
-                    <input type="text" id='image_url'/>
+                    <input type="text" name='image_url' value={formData.image_url} onChange={handleChange} required/>
                  </div>
 
                  <button type='submit' className='createMealButton'>Submit</button>
