@@ -20,11 +20,18 @@ function MealHeader() {
           Meals
         </Link>
         <Link
+          href="/meals/create"
+          className={pathname === "/meals/create" ? 'activeLink' : ""}
+        >
+          Create Meal
+        </Link>
+        <Link
           href="/#footer"
           className={pathname === "/#footer" ? 'activeLink' : ""}
         >
           Contact
         </Link>
+        
       </div>
     </div>
   );
