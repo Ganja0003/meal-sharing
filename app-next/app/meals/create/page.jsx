@@ -25,13 +25,16 @@ export default function CreateMeal(){
 
    async function handleSubmit(e) {
       e.preventDefault()
-
+      
       const response = await fetch('http://127.0.0.1:3001/api/meals',{
          method: 'POST',
          headers: {
             'Content-Type':'application/json',
          },
-         body: JSON.stringify(formData),
+         body: JSON.stringify({
+            ...formData,
+            image_url: formData.image_url.startsWith("http") ? formData.image_url : "http://127.0.0.1:3000/default.jpg",
+         }),
       }) 
       const data = await response.json();
       console.log(data)
