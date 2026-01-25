@@ -85,7 +85,7 @@ console.log(formData)
 
                  <div className="createMealDivs">
                     <label htmlFor="image_url">Image URL: </label>
-                    <input type="text" name='image_url' value={formData.image_url} onChange={handleChange} required/>
+                    <input type="text" name='image_url' value={formData.image_url} onChange={handleChange} placeholder="https://example.com/image.jpg" required/>
                  </div>
 
                  <button type='submit' className='createMealButton'>Submit</button>
