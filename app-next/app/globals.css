@@ -64,6 +64,49 @@ body,
     font-weight: bold;
 }
 
+.menuIcon{
+  display: none;
+}
+
+@media(max-width:768px){
+  
+  .nav > div {
+    width: 100%;
+}
+  
+  .menuIcon{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    padding-right: 10px;
+    color: white;
+  }
+
+  .navLinks{
+    display: none;
+  }
+
+  .show{
+    display: flex;
+    flex-direction: column;
+    background-color: #ff6f47;
+    position:absolute;
+    right: 0px;
+    top: 82px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 1rem;
+  }
+
+  .hide{
+    display:none
+  }
+
+  
+}
+
 
 .pageTitle{
     background-color: coral;
