@@ -5,7 +5,6 @@ import { useState } from "react";
 //try with useParams hook when you are done instead of passing it as a prop
 export default function ReservationsForm({mealId,meal}) {
 
-  const maxReservations = meal.max_reservations
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -104,7 +103,7 @@ export default function ReservationsForm({mealId,meal}) {
         onChange={handleInputData}
         required
         min={1}
-        max={maxReservations}
+        max={meal.available_reservations}
         />
       </div>
 
