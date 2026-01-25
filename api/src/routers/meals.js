@@ -113,7 +113,7 @@ try{
     return res.status(404).json({ error: "meals doesnt exist" });
   }
 
-  meals.canReserve = meals.available_reservations > 0;
+  meals[0].canReserve = meals[0].available_reservations > 0;
   res.json(meals[0]);
 
 } catch (error) {
