@@ -1,15 +1,23 @@
 'use client'
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu } from 'lucide-react';
+import { useState } from "react";
 function MealHeader() {
   const pathname = usePathname();
+  const [menuOpen,setMenuOpen] = useState(false)
+
+  function togglevisibility(){
+    setMenuOpen((prev) => !prev)
+  }
 
   return (
     <div className="nav">
       <div className="title">
         <h1>Meals Project</h1>
       </div>
-      <div className="navLinks">
+      <Menu className='menuIcon' onClick={togglevisibility}/>
+      <div className={`navLinks ${menuOpen ? 'show':'hide'}`}>
         <Link href="/" className={pathname === "/" ? 'activeLink' : ""}>
           Home
         </Link>
