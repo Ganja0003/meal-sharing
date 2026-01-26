@@ -4,13 +4,14 @@ import ReviewsForm from "@/components/ReviewsForm";
 
 
 export default async function specificMeal({ params }) {
+  const url = 'https://meal-sharing-production-fc23.up.railway.app/';
   const { id } = params;
-  const res = await fetch(`http://127.0.0.1:3001/api/meals/${id}`, {
+  const res = await fetch(`${url}/api/meals/${id}`, {
     cache: "no-store",
   });
   const meal = await res.json();
 
-  const response = await fetch(`http://127.0.0.1:3001/api/reviews/${id}`, {
+  const response = await fetch(`${url}/api/reviews/${id}`, {
     cache: "no-store",
   });
   const reviews = await response.json();

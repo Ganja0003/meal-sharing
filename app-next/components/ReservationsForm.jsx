@@ -4,13 +4,13 @@ import { useState } from "react";
 
 //try with useParams hook when you are done instead of passing it as a prop
 export default function ReservationsForm({mealId,meal}) {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     number: "",
     guests: "",
   });
+  const url = 'https://meal-sharing-production-fc23.up.railway.app/';
 
   function handleInputData(event) {
     const inputName = event.target.name;
@@ -34,7 +34,7 @@ export default function ReservationsForm({mealId,meal}) {
       contact_email: formData.email,
     };
 
-    const response = await fetch("http://127.0.0.1:3001/api/reservations", {
+    const response = await fetch(`${url}/api/reservations`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSend),

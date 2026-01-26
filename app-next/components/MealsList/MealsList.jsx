@@ -8,13 +8,14 @@ function MealsList({ slice }) {
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState('');
   const [sortDir, setSortDir] = useState('');
+  const url = 'https://meal-sharing-production-fc23.up.railway.app/';
 
   console.log(sortDir);
 
   useEffect(() => {
     async function fetchMeals() {
       const response = await fetch(
-        `http://127.0.0.1:3001/api/meals?sortKey=${sortKey}&sortDir=${sortDir}`
+        `${url}/api/meals?sortKey=${sortKey}&sortDir=${sortDir}`
       );
       const data = await response.json();
       setMeals(data);

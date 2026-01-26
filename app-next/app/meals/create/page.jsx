@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 export default function CreateMeal(){
    const router = useRouter()
+   const url = 'https://meal-sharing-production-fc23.up.railway.app/';
 
    const [formData,setFormData] = useState({
       title:'',
@@ -26,15 +27,12 @@ export default function CreateMeal(){
    async function handleSubmit(e) {
       e.preventDefault()
       
-      const response = await fetch('http://127.0.0.1:3001/api/meals',{
+      const response = await fetch(`${url}/api/meals`,{
          method: 'POST',
          headers: {
             'Content-Type':'application/json',
          },
-         body: JSON.stringify({
-            ...formData,
-            image_url: formData.image_url.startsWith("http") ? formData.image_url : "http://127.0.0.1:3000/default.jpg",
-         }),
+         body: JSON.stringify(formData),
       }) 
       const data = await response.json();
       console.log(data)
@@ -85,7 +83,7 @@ console.log(formData)
 
                  <div className="createMealDivs">
                     <label htmlFor="image_url">Image URL: </label>
-                    <input type="text" name='image_url' value={formData.image_url} onChange={handleChange} placeholder="https://example.com/image.jpg" required/>
+                    <input type="text" name='image_url' value={formData.image_url} onChange={handleChange} required/>
                  </div>
 
                  <button type='submit' className='createMealButton'>Submit</button>

@@ -7,6 +7,7 @@ export default function ReviewsForm({ mealId }) {
     description: "",
     stars: "",
   });
+  const url = 'https://meal-sharing-production-fc23.up.railway.app/';
 
   function handleFormInput(event) {
     const inputName = event.target.name;
@@ -30,7 +31,7 @@ export default function ReviewsForm({ mealId }) {
       },
     ];
 
-    const response = await fetch("http://127.0.0.1:3001/api/reviews", {
+    const response = await fetch(`${url}/api/reviews`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSend),
