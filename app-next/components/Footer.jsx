@@ -1,6 +1,6 @@
 import fb from "../assets/facebook_logo.png";
 import ig from "../assets/insta.jpeg";
-import ln from "../assets/linkedIn.png";
+import ln from "../assets/linkedin.png";
 
 function Footer() {
   return (
