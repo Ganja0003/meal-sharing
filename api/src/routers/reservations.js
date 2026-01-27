@@ -13,9 +13,10 @@ reservationsRouter.get("/", async (req, res) => {
     try {
       const reservation = await db.select("*").from("reservation");
       res.json(reservation);
-    } catch (error) {
-      res.status(500).json({ error: "Server error" });
-    }
+    } catch (err) {
+  console.log(err);
+  res.status(500).json({ error: err.message });
+}
   });
 
 
