@@ -9,7 +9,7 @@ export default function CreateMeal(){
       title:'',
       description:'',
       location:'',
-      when:'',
+      event_time:'',
       max_reservations:'',
       price:'',
       created_date: new Date().toISOString().split('T')[0],
@@ -67,8 +67,8 @@ console.log(formData)
                  </div>
 
                  <div className="createMealDivs">
-                   <label htmlFor="when">When: </label>
-                    <input type="date" name='when' value={formData.when} onChange={handleChange} min={new Date().toISOString().split('T')[0]} required/> 
+                   <label htmlFor="event_time">Event Time: </label>
+                    <input type="date" name='event_time' value={formData.event_time} onChange={handleChange} min={new Date().toISOString().split('T')[0]} required/> 
                  </div>
 
                  <div className="createMealDivs">
