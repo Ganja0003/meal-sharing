@@ -7,7 +7,7 @@ export default function ReviewsForm({ mealId }) {
     description: "",
     stars: "",
   });
-  const url = 'https://meal-sharing-production-fc23.up.railway.app/';
+  const url = 'https://meal-sharing-production-fc23.up.railway.app';
 
   function handleFormInput(event) {
     const inputName = event.target.name;

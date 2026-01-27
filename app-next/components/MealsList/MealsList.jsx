@@ -8,7 +8,7 @@ function MealsList({ slice }) {
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState('');
   const [sortDir, setSortDir] = useState('');
-  const url = 'https://meal-sharing-production-fc23.up.railway.app/';
+  const url = 'https://meal-sharing-production-fc23.up.railway.app';
 
   console.log(sortDir);
 

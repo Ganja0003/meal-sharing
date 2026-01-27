@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 export default function CreateMeal(){
    const router = useRouter()
-   const url = 'https://meal-sharing-production-fc23.up.railway.app/';
+   const url = 'https://meal-sharing-production-fc23.up.railway.app';
 
    const [formData,setFormData] = useState({
       title:'',

@@ -10,7 +10,7 @@ export default function ReservationsForm({mealId,meal}) {
     number: "",
     guests: "",
   });
-  const url = 'https://meal-sharing-production-fc23.up.railway.app/';
+  const url = 'https://meal-sharing-production-fc23.up.railway.app';
 
   function handleInputData(event) {
     const inputName = event.target.name;
