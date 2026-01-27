@@ -11,8 +11,7 @@ const db = knex({
     user: process.env.DB_USER || process.env.MYSQLUSER,
     password: process.env.DB_PASSWORD || process.env.MYSQLPASSWORD,
     database: process.env.DB_DATABASE_NAME || process.env.MYSQLDATABASE,
-    ssl:
-      process.env.DB_USE_SSL === "true" ? { rejectUnauthorized: false } : false,
+    ssl: { rejectUnauthorized: false },
   },
 });
 
