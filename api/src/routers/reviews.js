@@ -9,10 +9,9 @@ reviewsRouter.get("/",async (req,res)=>{
     try{
         const reviews = await db.select('*').from('review');
         res.json(reviews)
-    }catch (err) {
-  console.log(err);
-  res.status(500).json({ error: err.message || err });
-}
+    }catch (error) {
+        res.status(500).json({error: 'Server error'})
+    }
 })
 
 

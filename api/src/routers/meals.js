@@ -69,10 +69,9 @@ mealsRouter.get("/", async (req, res) => {
     
     const meals = await mealsQuery;
     res.json(meals);
-  } catch (err) {
-  console.log(err);
-  res.status(500).json({ error: err.message || err });
-}
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
 });
 
 
