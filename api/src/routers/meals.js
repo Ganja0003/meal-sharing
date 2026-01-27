@@ -71,7 +71,7 @@ mealsRouter.get("/", async (req, res) => {
     res.json(meals);
   } catch (err) {
   console.log(err);
-  res.status(500).json({ error: err.message });
+  res.status(500).json({ error: err.message || err });
 }
 });
 

@@ -11,7 +11,7 @@ reviewsRouter.get("/",async (req,res)=>{
         res.json(reviews)
     }catch (err) {
   console.log(err);
-  res.status(500).json({ error: err.message });
+  res.status(500).json({ error: err.message || err });
 }
 })
 
